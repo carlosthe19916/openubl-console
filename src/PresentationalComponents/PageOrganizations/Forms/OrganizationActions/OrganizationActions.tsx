@@ -1,7 +1,7 @@
 import * as React from "react";
+import { useState } from "react";
 import { Dropdown, DropdownToggle, DropdownItem } from "@patternfly/react-core";
 import { CaretDownIcon } from "@patternfly/react-icons";
-import { useState } from "react";
 
 export interface OrganizationActionsProps {
   onEdit: () => void;

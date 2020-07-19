@@ -1,5 +1,4 @@
-import "../node_modules/@patternfly/patternfly/patternfly.css";
-import "../node_modules/@patternfly/patternfly/patternfly-addons.css";
+import "../src/App.scss";
 
 import { addDecorator, addParameters } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";

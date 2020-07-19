@@ -14,20 +14,15 @@ import {
 export const stateKey = "organizationList";
 
 export type OrganizationListState = Readonly<{
-  organizations: PaginationResponseRepresentation<OrganizationRepresentation>;
+  organizations:
+    | PaginationResponseRepresentation<OrganizationRepresentation>
+    | undefined;
   error: AxiosError<any> | null;
   status: FetchStatus;
 }>;
 
 export const defaultState: OrganizationListState = {
-  organizations: {
-    data: [],
-    meta: { count: 0, offset: 0, limit: 10 },
-    links: {
-      first: "",
-      last: "",
-    },
-  },
+  organizations: undefined,
   error: null,
   status: "none",
 };

@@ -4,7 +4,7 @@ import toJson from "enzyme-to-json";
 import {
   FilterToolbarItem,
   FilterToolbarItemProps,
-} from "../FilterToolbarItem";
+} from "../filter-toolbar-item";
 
 describe("<FilterToolbarItem />", () => {
   let intialProps: FilterToolbarItemProps;

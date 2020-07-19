@@ -2,11 +2,10 @@ import React, { lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import { AppPlaceholder } from "./PresentationalComponents/Components/AppPlaceholder";
+import { Paths } from "./Paths";
 
-const PageOrganizations = lazy(() =>
-  import("./PresentationalComponents/PageOrganizations")
-);
-const PageNotFound404 = lazy(() =>
+const Organizations = lazy(() => import("./containers/organizations"));
+const NotFound = lazy(() =>
   import("./PresentationalComponents/PageNotFound404")
 );
 const PageOrganizationContext = lazy(() =>
@@ -14,16 +13,23 @@ const PageOrganizationContext = lazy(() =>
 );
 
 export const AppRoutes = () => {
+  const routes = [
+    { component: Organizations, path: Paths.organizations },
+    { component: PageOrganizationContext, path: Paths.serverOrganization },
+    { component: NotFound, path: Paths.notFound },
+  ];
+
   return (
     <Suspense fallback={<AppPlaceholder />}>
       <Switch>
-        <Route path="/organizations" component={PageOrganizations} />
-        <Route
-          path="/server/org/:organizationId"
-          component={PageOrganizationContext}
-        />
-        <Route path="/error-404" component={PageNotFound404} />
-        <Redirect from="/" to="/organizations" exact />
+        {routes.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            component={route.component}
+          ></Route>
+        ))}
+        <Redirect from={Paths.base} to={Paths.organizations} exact />
       </Switch>
     </Suspense>
   );

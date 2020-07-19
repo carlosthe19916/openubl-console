@@ -5,12 +5,9 @@ import {
   TextContent,
   Text,
 } from "@patternfly/react-core";
-import { AppRouterProps } from "../../../models/routerProps";
 import CreateOrganization from "../../../SmartComponents/Organizations/CreateOrganization";
 
-export interface PageCreateOrganizationProps extends AppRouterProps {}
-
-export const PageCreateOrganization: React.FC<PageCreateOrganizationProps> = () => {
+export const NewOrganization: React.FC = () => {
   return (
     <React.Fragment>
       <PageSection variant={PageSectionVariants.light}>

@@ -35,9 +35,33 @@ export default {
   title: "Components / FetchTable",
 };
 
-export const inProgress = () => (
+export const inProgressSpinner = () => (
   <State store={store}>
-    <FetchTable {...store.state.params} fetchStatus="inProgress" />
+    <FetchTable
+      {...store.state.params}
+      fetchStatus="inProgress"
+      loadingVariant="spinner"
+    />
+  </State>
+);
+
+export const inProgressSkeleton = () => (
+  <State store={store}>
+    <FetchTable
+      {...store.state.params}
+      fetchStatus="inProgress"
+      loadingVariant="skeleton"
+    />
+  </State>
+);
+
+export const inProgressNone = () => (
+  <State store={store}>
+    <FetchTable
+      {...store.state.params}
+      fetchStatus="inProgress"
+      loadingVariant="none"
+    />
   </State>
 );
 
@@ -47,12 +71,29 @@ export const error = () => (
       {...store.state.params}
       fetchStatus="complete"
       fetchError="Error message"
+      loadingVariant="spinner"
     />
   </State>
 );
 
 export const basic = () => (
   <State store={store}>
-    <FetchTable {...store.state.params} fetchStatus="complete" />
+    <FetchTable
+      {...store.state.params}
+      fetchStatus="complete"
+      loadingVariant="spinner"
+    />
+  </State>
+);
+
+export const empty = () => (
+  <State store={store}>
+    <FetchTable
+      {...store.state.params}
+      rows={[]}
+      fetchStatus="complete"
+      loadingVariant="spinner"
+      onClearFilters={action("Clear filters")}
+    />
   </State>
 );

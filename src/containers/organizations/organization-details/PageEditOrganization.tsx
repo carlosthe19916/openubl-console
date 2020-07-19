@@ -17,8 +17,8 @@ import WebServices from "../../../SmartComponents/Organizations/Forms/Sunat";
 import LegalEntity from "../../../SmartComponents/Organizations/Forms/LegalEntity";
 import Address from "../../../SmartComponents/Organizations/Forms/Address";
 import Contact from "../../../SmartComponents/Organizations/Forms/Contact";
-import TabsBasedOnRouter from "../../Components/TabsBasedOnRouter";
-import RoutersBasedOnMatch from "../../Components/RoutersBasedOnMatch";
+// import TabsBasedOnRouter from "../../Components/TabsBasedOnRouter";
+// import RoutersBasedOnMatch from "../../Components/RoutersBasedOnMatch";
 
 export interface PageEditOrganizationProps extends AppRouterProps {}
 
@@ -100,6 +100,7 @@ export const PageEditOrganization: React.FC<PageEditOrganizationProps> = ({
       render: () => <WebServices organizationId={organizationId} />,
     },
   ];
+  console.log(tabs);
 
   const getRedirectUrl = (path: number | string) => {
     return `${match.url}/${path}`;
@@ -121,13 +122,11 @@ export const PageEditOrganization: React.FC<PageEditOrganizationProps> = ({
         className="oul-c-page__tabs-section"
       >
         <Divider />
-        <TabsBasedOnRouter tabs={tabs} />
+        {/* <TabsBasedOnRouter tabs={tabs} /> */}
       </PageSection>
       <PageSection>
         <Card>
-          <CardBody>
-            <RoutersBasedOnMatch tabs={tabs} />
-          </CardBody>
+          <CardBody>{/* <RoutersBasedOnMatch tabs={tabs} /> */}</CardBody>
         </Card>
       </PageSection>
     </React.Fragment>
